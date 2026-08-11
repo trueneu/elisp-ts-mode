@@ -1,3 +1,5 @@
+;; -*- lexical-binding: t; -*-
+
 (require 'elisp-mode)
 
 ;; TODO: add:
