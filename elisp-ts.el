@@ -105,6 +105,16 @@
 
   (treesit-major-mode-setup))
 
+(defvar elisp-ts-mode-map
+  (let ((map (make-sparse-keymap)))
+    (define-key map (kbd "C-c C-e") 'eval-last-sexp)
+    (define-key map (kbd "C-c C-c") 'eval-defun)
+    (define-key map (kbd "C-c C-k") 'eval-buffer)
+    (define-key map (kbd "C-c C-p") 'eval-print-last-sexp)
+    map)
+  "Keymap for `knessy-yaml-mode'.")
+
+
 ;;;###autoload
 (define-derived-mode elisp-ts-mode emacs-lisp-mode "ELisp [TS]"
   "Major mode for emacs lisp with tree-sitter."
@@ -114,6 +124,5 @@
   (when (treesit-ready-p 'elisp)
     (treesit-parser-create 'elisp))
   (elisp-ts-setup))
-
 
 (provide 'elisp-ts)
